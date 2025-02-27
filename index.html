@@ -109,37 +109,29 @@
   </div>
 
   <script>
-    document.getElementById('login-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Get input values
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      const errorMessage = document.getElementById('error-message');
-      
-      // For demonstration purposes - replace with your actual credentials
-      const validUsername = 'jerome';
-      const validPassword = 'password';
-      
-      // Simple validation
-      if (username === validUsername && password === validPassword) {
-        // Successful login - redirect to Spofi
-        window.location.href = 'https://bootlifexu.github.io/Spofi/';
-      } else {
-        // Show error message
-        errorMessage.textContent = 'Invalid username or password';
-        errorMessage.style.display = 'block';
-      }
-    });
+  document.getElementById('login-form').addEventListener('submit', function(e) {
+    e.preventDefault();
     
-    // Hide error message when user starts typing
-    document.getElementById('username').addEventListener('input', function() {
-      document.getElementById('error-message').style.display = 'none';
-    });
+    // Get input values
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
     
-    document.getElementById('password').addEventListener('input', function() {
-      document.getElementById('error-message').style.display = 'none';
-    });
-  </script>
+    // For demonstration purposes - replace with your actual credentials
+    const validUsername = 'jerome';
+    const validPassword = 'password';
+    
+    // Simple validation
+    if (username === validUsername && password === validPassword) {
+      // Set authentication token in sessionStorage
+      sessionStorage.setItem('isAuthenticated', 'true');
+      // Redirect to Spofi
+      window.location.href = 'https://bootlifexu.github.io/Spofi/';
+    } else {
+      // Show error message
+      document.getElementById('error-message').textContent = 'Invalid username or password';
+      document.getElementById('error-message').style.display = 'block';
+    }
+  });
+</script>
 </body>
 </html>
